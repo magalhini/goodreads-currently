@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      max-width: 50em;
+      margin: auto;
+      justify-content: center;
+    }
+
+    .book {
+      padding: 1em;
+      width: 20em;
+      float: left;
+      text-align: center;
+    }
+
+    .book__title {
+      font-weight: bold;
+      font-size: .8rem;
+    }
+
+    .book__author {
+      font-family: serif;
+      font-size: .8rem;
+      color: #808080;
+    }
+
+    div a {
+      padding-left: 0.5em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Currendly reading</h1>
+
+    {{#if books}}
+    {{#each books as |book|}}
+    <div class="book">
+      <img class="book__cover" width="100" src={{ book.image_url }} alt="">
+      <p class="book__title">{{ book.title }}</p>
+      {{#each authors as |author|}}
+        {{#each author as |name|}}
+          <p class="book__author">{{ name.0.name }}</p>
+        {{/each}}
+      {{/each}}
+    </div>
+    {{/each}}
+    {{else}}
+      <h3>There's no one to list</h3>
+    {{/if}}
+  </div>
+</body>
+</html>
