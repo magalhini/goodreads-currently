@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Currently reading on Goodreads...</title>
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Currently Reading</h1>
+    <h3>Your books from Goodreads</h3>
+    <div class="helper-section">
+      <label class="helper__title">What's your Goodreads ID?</label>
+      <input type="text" name="" value="">
+      <button type="button" name="button">Show me my books</button>
+
+      <p>
+        <a href="#">(want the <code>JSON</code> response instead?)</a>
+      </p>
+    </div>
+    <p>Throw a <code>GET</code> request to <code>/reading/USER_ID</code> to fetch all books you're currently reading</p>
+    <p>You can add <code>/json</code> to the URI in order to get the raw response.</p>
+  </div>
+</body>
+</html>

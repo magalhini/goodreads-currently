@@ -1,0 +1,56 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  opacity: .8;
+  margin: 1.2em 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 1rem;
+  max-width: 50em;
+  margin: auto;
+  text-align: center;
+}
+
+.books {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-end;
+  flex-flow: row wrap;
+}
+
+.book {
+  padding: 1em;
+  width: 11em;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.book__cover {
+  box-shadow: 0 5px 10px -3px rgba(0,0,0,.5);
+}
+
+.book__title {
+  font-weight: bold;
+  font-size: .8rem;
+  line-height: 1.3;
+}
+
+.book__author {
+  font-family: Georgia, serif;
+  font-size: .8rem;
+  color: #808080;
+}
+
+div a {
+  padding-left: 0.5em;
+}
