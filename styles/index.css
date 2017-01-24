@@ -1,13 +1,25 @@
 body {
-  font-family: sans-serif;
+  color: #222;
+	background: #f6f6f6;
+  font-family: 'Capitolium2';
+  font-size: 1em;
 }
 
-h1 {
-  font-family: Georgia, serif;
-  font-size: 1rem;
-  font-style: italic;
-  opacity: .8;
-  margin: 1.2em 0;
+.main-title {
+  font-family: 'skolar sans latin';
+  font-size: 3em;
+  letter-spacing: -1x;
+  color: #333;
+  margin: 1rem 0;
+}
+
+.main-subtitle {
+  font-family: 'skolar sans latin';
+  font-size: 1em;
+  margin-top: -1rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #8a8a8a;
 }
 
 * {
@@ -18,10 +30,41 @@ h1 {
   padding: 1rem;
   max-width: 50em;
   margin: auto;
+
+}
+
+.button {
+  padding: 1rem 1.5rem;
+  background-color: #FF6023;
+  font-family: 'skolar sans latin';
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: .8em;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.input {
   text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 4px solid #ddd;
+  font-family: 'skolar sans latin';
+}
+
+.input--large {
+  font-size: 1.5em;
+  padding: 1em 1em .5em 1em;
+}
+
+.input:focus {
+  outline: none;
 }
 
 .books {
+  margin-top: 4em;
   display: flex;
   align-items: flex-start;
   align-content: flex-end;
@@ -41,13 +84,12 @@ h1 {
 
 .book__title {
   font-weight: bold;
-  font-size: .8rem;
   line-height: 1.3;
+  font-family: 'skolar sans latin';
 }
 
 .book__author {
-  font-family: Georgia, serif;
-  font-size: .8rem;
+  font-family: 'Capitolium2';
   color: #808080;
 }
 

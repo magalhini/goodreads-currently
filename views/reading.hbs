@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Currently reading on Goodreads...</title>
-  <link rel="stylesheet" href="/styles/index.css">
-</head>
+  {{>header}}
 <body>
 
   <div class="container">
-    <h1>Currently reading</h1>
+    <h1 class="main-title">Currently Reading</h1>
+    <p class="main-subtitle">on goodreads</p>
 
     <div class="books">
       {{#if books}}

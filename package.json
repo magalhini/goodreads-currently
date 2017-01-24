@@ -13,10 +13,10 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.16.0",
-    "consolidate": "^0.14.5",
     "express": "^4.14.0",
     "goodreads": "^0.1.0",
-    "handlebars": "^4.0.6"
+    "handlebars": "^4.0.6",
+    "hbs": "^4.0.1"
   },
   "devDependencies": {
     "node-env-file": "^0.1.8"

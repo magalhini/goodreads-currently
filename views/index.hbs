@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Currently reading on Goodreads...</title>
-  <link rel="stylesheet" href="../styles/index.css">
-  <link rel="stylesheet" href="./styles/index.css">
-</head>
+{{>header}}
 <body>
 
   <div class="container">
-    <h1>Currently Reading</h1>
-    <h3>Your books from Goodreads</h3>
+    <h1 class="main-title">Currently Reading</h1>
+    <p class="main-subtitle">Your books from Goodreads</p>
     <div class="helper-section">
       <label class="helper__title">What's your Goodreads ID?</label>
-      <input type="text" name="" value="">
-      <button type="button" name="button">Show me my books</button>
+      <input class="input input--large" type="text" name="" value="">
+      <button class="button" type="button" name="button">Display my books</button>
 
       <p>
         <a href="#">(want the <code>JSON</code> response instead?)</a>
