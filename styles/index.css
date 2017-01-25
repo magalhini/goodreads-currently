@@ -69,6 +69,8 @@ body {
   align-items: flex-start;
   align-content: flex-end;
   flex-flow: row wrap;
+  transform-style: preserve-3d;
+  perspective: 800px;
 }
 
 .book {
@@ -76,10 +78,16 @@ body {
   width: 11em;
   flex-grow: 1;
   text-align: center;
+  transition: transform ease-in-out .3s;
+  overflow: hidden;
 }
 
 .book__cover {
   box-shadow: 0 5px 10px -3px rgba(0,0,0,.5);
+}
+
+.book:hover {
+  transform: rotateY(-10deg);
 }
 
 .book__title {

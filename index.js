@@ -12,14 +12,13 @@ const PORT = process.env.PORT || 3000;
 // load environment variables
 env(__dirname + '/.env')
 
-const parser = new xml2js.Parser();
+const parser = new xml2js.Parser()
 
 const goodreadsClient = new goodreads.client({
   key: process.env.KEY,
   secret: process.env.SECRET
 })
 
-//app.engine('hbs', engines.handlebars)
 app.set('views', './views')
 app.set('view engine', 'hbs')
 app.use(express.static(__dirname + '/'))
@@ -33,7 +32,8 @@ function getCurrentlyReading(userID) {
       shelf: 'currently-reading',
       page: 1
     }, (data) => {
-      if (typeof data.html !== 'object') {
+      console.log(data);
+      if (typeof data.html !== 'object' && typeof data.error !== 'null') {
         const { books } = data.GoodreadsResponse
         resolve(books[0].book)
       } else {
@@ -69,4 +69,4 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.listen(PORT, () => console.log('Listening on http://localhost:3000'))
+app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))
