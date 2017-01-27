@@ -8,11 +8,18 @@
     <p class="main-subtitle">Your books from Goodreads</p>
     <div class="helper-section">
       <label class="helper__title">What's your Goodreads ID?</label>
-      <input class="input input--large" type="text" name="" value="">
-      <button class="button" id="get-books" type="button" name="button">Display my books</button>
-      <p>
+
+      <span class="input-wrapper">
+        <input type="text" class="input__field input__field--actives">
+        <label for="" class="input__label">(or paste your full profile URL)</label>
+      </span>
+
+      <span class="submit-wrapper">
+        <button class="button" id="get-books" type="button" name="button">Display my books</button>
         <a href="#">(want the <code>JSON</code> response instead?)</a>
-      </p>
+      </span>
+
+
     </div>
     <p>Throw a <code>GET</code> request to <code>/reading/USER_ID</code> to fetch all books you're currently reading</p>
     <p>You can add <code>/json</code> to the URI in order to get the raw response.</p>
