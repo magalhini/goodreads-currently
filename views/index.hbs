@@ -7,18 +7,16 @@
     <h1 class="main-title">Currently Reading</h1>
     <p class="main-subtitle">Your books from Goodreads</p>
     <div class="helper-section">
-      <label class="helper__title">What's your Goodreads ID?</label>
 
-      <span class="input-wrapper">
-        <input type="text" class="input__field input__field--actives">
+      <div class="input-wrapper">
+        <label class="helper__title">What's your Goodreads ID?</label>
+        <input id="input" type="text" class="input__field input__field--actives">
         <label for="" class="input__label">(or paste your full profile URL)</label>
-      </span>
+      </div>
 
-      <span class="submit-wrapper">
+      <div class="submit-wrapper">
         <button class="button" id="get-books" type="button" name="button">Display my books</button>
-        <a href="#">(want the <code>JSON</code> response instead?)</a>
-      </span>
-
+      </div>
 
     </div>
     <p>Throw a <code>GET</code> request to <code>/reading/USER_ID</code> to fetch all books you're currently reading</p>
@@ -37,7 +35,7 @@
     };
 
     function Index() {
-      this.inputField = document.querySelector('.input');
+      this.inputField = document.getElementById('input');
       this.getBooksButton = document.getElementById('get-books');
       this.patternID = /\d+/g;
       this.extractID = this.extractID.bind(this);
