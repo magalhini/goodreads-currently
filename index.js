@@ -8,11 +8,17 @@ const env = require('node-env-file')
 const fetch = require('node-fetch')
 const xml2js = require('xml2js')
 const PORT = process.env.PORT || 3000;
+const api = require('./api');
 
 // load environment variables
 env(__dirname + '/.env')
 
 const parser = new xml2js.Parser()
+
+const apiClient = new api({
+  key: process.env.KEY,
+  secret: process.env.SECRET
+});
 
 const goodreadsClient = new goodreads.client({
   key: process.env.KEY,
@@ -32,9 +38,9 @@ function getCurrentlyReading(userID) {
       shelf: 'currently-reading',
       page: 1
     }, (data) => {
-      console.log(data);
       if (typeof data.html !== 'object' && typeof data.error !== 'null') {
         const { books } = data.GoodreadsResponse
+        console.log(books[0].book);
         resolve(books[0].book)
       } else {
         reject({ success: false })
@@ -60,6 +66,9 @@ app.get('/reading/:user/json', (req, res) => {
 })
 
 app.get('/', (req, res) => {
+  apiClient.searchBook('Arthur asdsda', 'Hound Of Baskervilles')
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
   /*fetch(`https://www.goodreads.com/book/title.xml?author=Arthur+Doyle&key=${process.env.KEY}&title=Hound+of+Baskervilles`)
     .then(res => res.text())
     .then(d => parser.parseString(d, (err, parsed) => {
