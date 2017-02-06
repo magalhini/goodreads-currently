@@ -66,14 +66,13 @@ app.get('/reading/:user/json', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  apiClient.searchBook('Arthur asdsda', 'Hound Of Baskervilles')
+  /*apiClient.searchBook('Arthur asdsda', 'Hound Of Baskervilles')
     .then(res => console.log(res))
-    .catch(err => console.log(err));
-  /*fetch(`https://www.goodreads.com/book/title.xml?author=Arthur+Doyle&key=${process.env.KEY}&title=Hound+of+Baskervilles`)
-    .then(res => res.text())
-    .then(d => parser.parseString(d, (err, parsed) => {
-      console.log(parsed.GoodreadsResponse.book);
-    }))*/
+    .catch(err => console.log(err));*/
+
+  apiClient.getShelf(26866736)
+    .then(res => res.map(review => review.review)
+    .map(list => list.map(book => console.log(book.book))))
 
   res.render('index')
 })
