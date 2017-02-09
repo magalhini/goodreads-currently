@@ -5,22 +5,21 @@
 
   <div class="container">
     <h1 class="main-title">Currently Reading</h1>
-    <p class="main-subtitle">Your books from Goodreads</p>
+    <p class="main-subtitle">Your books from Goodreads 📚</p>
     <div class="helper-section">
 
       <div class="input-wrapper">
-        <label class="helper__title">Paste your Goodreads ID or your profile URL below:</label>
-        <input id="input" type="text" class="input__field input__field--actives">
-        <label for="" class="input__label"></label>
+        <p class="helper__title">Get a profile page for your current reading selection on Goodreads,
+or use a  <code>JSON</code> response that you can consume as a developer. As an example,<a href="/reading/26866736/">here's mine!</a></p>
       </div>
 
       <div class="submit-wrapper">
+        <input placeholder="Enter your Goodreads ID or full profile URL" id="input" type="text" class="input__field input__field--actives">
+        <label for="" class="input__label"></label>
         <button class="button" id="get-books" type="button" name="button">Display my books</button>
       </div>
 
-    </div>
-    <p>Throw a <code>GET</code> request to <code>/reading/USER_ID</code> to fetch all books you're currently reading</p>
-    <p>You can add <code>/json</code> to the URI in order to get the raw response.</p>
+
   </div>
 
   <script type="text/javascript">

@@ -5,21 +5,22 @@
 
   <div class="container">
     <h1 class="main-title">Currently Reading</h1>
-    <p class="main-subtitle">on goodreads</p>
+    <p class="main-subtitle">Your books from Goodreads</p>
 
     <div class="books">
       {{#if books}}
       {{#each books as |book|}}
       <div class="book">
-        <a href={{ book.link }}>
-          <img class="book__cover" width="100" src={{ book.image_url }} alt="">
-        </a>
-        <p class="book__title">{{ book.title }}</p>
         {{#each authors as |author|}}
           {{#each author as |name|}}
             <p class="book__author">{{ name.0.name }}</p>
           {{/each}}
         {{/each}}
+        <a href={{ book.link }}>
+          <img class="book__cover" width="100" src={{ book.image_url }} alt="">
+        </a>
+        <p class="book__title">{{ book.title }}</p>
+
       </div>
       {{/each}}
       {{else}}

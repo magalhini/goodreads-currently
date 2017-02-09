@@ -32,6 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 hbs.registerPartials(__dirname + '/views/partials')
 
 function getCurrentlyReading(userID) {
+  console.log(userID)
   return new Promise((resolve, reject) => {
     goodreadsClient.getSingleShelf({
       userID: userID,

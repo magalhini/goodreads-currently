@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const xml2js = require('xml2js');
 const parser = new xml2js.Parser();
+const apiFormatString = require('./helpers').apiFormatString;
 
 class API {
   constructor({key, secret}) {

@@ -1,60 +1,62 @@
 body {
-  color: #222;
-	background: #f6f6f6;
-  font-family: 'skolar sans latin';
+  color: #D9D9D9;
+	background: #222127;
+  font-family: 'adelle sans';
   font-size: 1em;
+  line-height: 1.5;
 }
 
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
-.dark-theme {
-   background: #222127;
-   color: #fff;
+a {
+  color: #fefefe;
 }
 
 .main-title {
-  font-family: 'skolar sans latin';
+  font-family: 'bodoni urw';
   font-size: 3em;
+  font-weight: 100;
   letter-spacing: -1px;
-  color: #c1795d;
-  margin: 1rem 0;
-}
-
-.dark-theme .main-title {
-  color: #ffad62;
+  color: #fff;
+  margin: 1rem 0 0 0;
 }
 
 .main-subtitle {
-  font-family: 'skolar sans latin';
   font-size: 1em;
   margin-top: -1rem;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: #8a8a8a;
-}
-
-.dark-theme .main-subtitle {
-  color: #ffad62;
-  opacity: .6;
+  color: #C97D7D;
 }
 
 .container {
-  padding: 1rem;
+  padding: 4rem 1rem 0 1rem;
   max-width: 50em;
   margin: auto;
 }
 
+.helper__title {
+  width: 80%;
+  font-size: 1.2rem;
+}
+
+.button,
+.input {
+  font-family: 'adelle sans';
+}
+
 .button {
   padding: 1.5em 3em;
-  background-color: #c1795d;
-  font-family: 'skolar sans latin';
+  background-color: #C97D7D;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: none;
   color: #fff;
   font-weight: 600;
+  position: absolute;
+  right: 0;
+  top: 1.7rem;
 }
 
 .input {
@@ -62,12 +64,6 @@ body {
   background: transparent;
   border: none;
   border-bottom: 4px solid #ddd;
-  font-family: 'skolar sans latin';
-}
-
-.input--large {
-  font-size: 1.5em;
-  padding: 1em 1em .5em 1em;
 }
 
 .input:focus {
@@ -75,7 +71,7 @@ body {
 }
 
 .books {
-  margin-top: 4em;
+  margin-top: 1em;
   display: flex;
   align-items: flex-start;
   align-content: flex-end;
@@ -89,27 +85,28 @@ body {
   width: 11em;
   flex-grow: 1;
   text-align: center;
-  transition: transform ease-in-out .3s;
   overflow: hidden;
 }
 
 .book__cover {
   box-shadow: 0 15px 15px -5px rgba(0,0,0,.5);
+  transition: transform ease-in-out .3s;
 }
 
-.book:hover {
+.book:hover img {
   transform: rotateY(-10deg);
 }
 
 .book__title {
   font-size: 1.2em;
   line-height: 1.3;
-  font-family: 'skolar sans latin';
+
 }
 
 .book__author {
-  font-family: 'Capitolium2';
-  color: #808080;
+  font-family: 'bodoni urw';
+  color: #ff8e8e;
+  font-size: 1.3rem;
 }
 
 div a {
@@ -140,7 +137,6 @@ div a {
 .submit-wrapper {
   width: 100%;
   position: relative;
-  text-align: center;
 }
 
 .input__field {
@@ -150,12 +146,13 @@ div a {
   font-family: 'skolar sans latin';
   font-weight: 100;
   font-size: 1.3em;
-  padding: 1em 0;
+  padding: .8em 1rem;
   height: 4;
-  width: 100%;
+  width: 60%;
   opacity: 1;
   color: #333;
-  text-align: center;
+  margin-top: 1.5em;
+  float: left;
   border: none;
   z-index: 10;
   border-radius: 0;
@@ -166,17 +163,16 @@ div a {
 .input__field:focus,
 .input__field.input__field--active {
   transition-delay: .3s;
-  color: #222;
+  color: #fff;
   opacity: 1;
   outline: none;
 }
 
 .input__label {
   display: inline-block;
-  float: right;
   padding: 1em 0;
   position: relative;
-  width: 100%;
+  width: 60%;
   text-align: left;
   color: #6a7989;
   font-weight: bold;
@@ -190,7 +186,7 @@ div a {
     left: 0;
     width: 100%;
     height: 3.5em;
-    background: #fff;
+    background: #353535;
     -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
     transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
     -webkit-transform-origin: 50% 100%;

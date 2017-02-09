@@ -16,7 +16,8 @@
     "express": "^4.14.0",
     "goodreads": "^0.1.0",
     "handlebars": "^4.0.6",
-    "hbs": "^4.0.1"
+    "hbs": "^4.0.1",
+    "node-fetch": "^1.6.3"
   },
   "devDependencies": {
     "node-env-file": "^0.1.8"
