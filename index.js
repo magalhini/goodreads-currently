@@ -32,7 +32,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 hbs.registerPartials(__dirname + '/views/partials')
 
 function getCurrentlyReading(userID) {
-  console.log(userID)
   return new Promise((resolve, reject) => {
     goodreadsClient.getSingleShelf({
       userID: userID,
@@ -40,40 +39,38 @@ function getCurrentlyReading(userID) {
       page: 1
     }, (data) => {
       if (typeof data.html !== 'object' && typeof data.error !== 'null') {
-        const { books } = data.GoodreadsResponse
-        console.log(books[0].book);
+        const { books } = data.GoodreadsResponse;
         resolve(books[0].book)
       } else {
         reject({ success: false })
       }
     })
-  })
+  });
 }
 
 app.get('/reading/:user', (req, res) => {
-  const user = req.params.user
+  const user = req.params.user;
 
-  getCurrentlyReading(user)
-    .then(books => res.render('reading', { books }))
-    .catch(err => res.send(err))
-})
+  apiClient
+    .getShelf(user, 'currently-reading')
+    .then(items => res.render('reading', { items }))
+    .catch(error => res.render('reading', { error }));
+});
 
 app.get('/reading/:user/json', (req, res) => {
-  const user = req.params.user
+  const user = req.params.user;
 
-  getCurrentlyReading(user)
-    .then(books => res.json(books))
-    .catch(err => res.send(err))
-})
+  apiClient
+    .getShelf(user, 'currently-reading')
+    .then(items => res.json(items));
+});
 
 app.get('/', (req, res) => {
-  /*apiClient.searchBook('Arthur asdsda', 'Hound Of Baskervilles')
+  apiClient.searchBook({
+    title: 'Hound Of Baskervilles'
+  })
     .then(res => console.log(res))
-    .catch(err => console.log(err));*/
-
-  apiClient.getShelf(26866736)
-    .then(res => res.map(review => review.review)
-    .map(list => list.map(book => console.log(book.book))))
+    .catch(err => console.log(err));
 
   res.render('index')
 })

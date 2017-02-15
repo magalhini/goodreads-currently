@@ -5,26 +5,28 @@
 
   <div class="container">
     <h1 class="main-title">Currently Reading</h1>
-    <p class="main-subtitle">Your books from Goodreads</p>
+    <p class="main-subtitle">Your books from Goodreads 📚</p>
 
     <div class="books">
-      {{#if books}}
-      {{#each books as |book|}}
-      <div class="book">
-        {{#each authors as |author|}}
-          {{#each author as |name|}}
-            <p class="book__author">{{ name.0.name }}</p>
+      {{#if error}}
+        <h3>There was an error getting the books for this user</h3>
+      {{/if}}
+      {{#if items}}
+        {{#each items as |books|}}
+          {{#each books.book as |book|}}
+          <div class="book">
+            {{#each book.authors as |author|}}
+              {{#each author as |name| }}
+                <p class="book__author">{{ name.0.name }}</p>
+              {{/each}}
+            {{/each}}
+            <a href={{ book.link }}>
+              <img class="book__cover" width="100" src={{ book.image_url }} alt="">
+            </a>
+            <p class="book__title">{{ book.title }}</p>
+          </div>
           {{/each}}
         {{/each}}
-        <a href={{ book.link }}>
-          <img class="book__cover" width="100" src={{ book.image_url }} alt="">
-        </a>
-        <p class="book__title">{{ book.title }}</p>
-
-      </div>
-      {{/each}}
-      {{else}}
-        <h3>There's no one to list</h3>
       {{/if}}
     </div>
   </div>
