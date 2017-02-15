@@ -9,8 +9,8 @@
     <div class="helper-section">
 
       <div class="input-wrapper">
-        <p class="helper__title">Get a profile page for your current reading selection on Goodreads,
-or use a  <code>JSON</code> response that you can consume as a developer. As an example,<a href="/reading/26866736/">here's mine!</a></p>
+        <p class="helper__title">Currently Reading is both a pretty profile page for your current reading selection on Goodreads,
+and an API microservice that allows you to consume its API in a <code>JSON</code> response. As an example,<a href="/reading/26866736/">here's my current reading list.</a></p>
       </div>
 
       <div class="submit-wrapper">
@@ -19,6 +19,11 @@ or use a  <code>JSON</code> response that you can consume as a developer. As an 
         <button class="button" id="get-books" type="button" name="button">Display my books</button>
       </div>
 
+      <div class="endpoints">
+        <h3>API endpoints:</h3>
+        <div><pre class="endpoint__link">/reading/:userID/json</pre> — <span class="endpoint__description">currently reading shelf</span></div>
+        <div><pre class="endpoint__link">/book/:bookID/json</pre> — <span class="endpoint__description">gets book by ID</span></div>
+      </div>
 
   </div>
 

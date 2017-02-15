@@ -48,15 +48,21 @@ a {
 
 .button {
   padding: 1.5em 3em;
+  border: 2px solid transparent;
   background-color: #C97D7D;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: none;
   color: #fff;
   font-weight: 600;
   position: absolute;
   right: 0;
   top: 1.7rem;
+}
+
+.button:hover {
+  background-color: #222127;
+  color: #C97D7D;
+  border: 2px solid #C97D7D;
 }
 
 .input {
@@ -217,4 +223,15 @@ div a {
 .input__field:focus + .input__label::before,
 .input__field--active + .input__label::before {
   transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
+}
+
+.endpoints {
+  width: 100%;
+  margin-top: 2em;
+}
+
+.endpoint__link,
+.endpoint__description {
+  display: inline-block;
+  margin: 0;
 }

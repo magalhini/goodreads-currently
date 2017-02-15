@@ -20,9 +20,11 @@
                 <p class="book__author">{{ name.0.name }}</p>
               {{/each}}
             {{/each}}
-            <a href={{ book.link }}>
-              <img class="book__cover" width="100" src={{ book.image_url }} alt="">
-            </a>
+            {{#each books.id as |id|}}
+              <a href=/book/{{ id }}>
+                <img class="book__cover" width="100" src={{ book.image_url }} alt="">
+              </a>
+            {{/each}}
             <p class="book__title">{{ book.title }}</p>
           </div>
           {{/each}}

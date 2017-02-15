@@ -10,7 +10,6 @@ const xml2js = require('xml2js')
 const PORT = process.env.PORT || 3000;
 const api = require('./api');
 
-// load environment variables
 env(__dirname + '/.env')
 
 const parser = new xml2js.Parser()
@@ -63,6 +62,14 @@ app.get('/reading/:user/json', (req, res) => {
   apiClient
     .getShelf(user, 'currently-reading')
     .then(items => res.json(items));
+});
+
+app.get('/book/:id', (req, res) => {
+  const id = req.params.id;
+
+  apiClient.getBookById(id)
+    .then(book => res.render('book', { book }))
+    .catch(error => res.render('book', { error }))
 });
 
 app.get('/', (req, res) => {

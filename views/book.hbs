@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{>header}}
+<body class="dark-theme">
+
+  <div class="container">
+    <h1 class="main-title">Currently Reading</h1>
+    <p class="main-subtitle">Your books from Goodreads 📚</p>
+
+    <div class="book__detail">
+      {{#if error}}
+        <h3>Oops, this book wasn't found. Try again?</h3>
+      {{/if}}
+      {{#if book}}
+        <h3 class="book__title">{{ book.0.title }}</h3>
+        {{#each book.0.authors as |author|}}
+          {{#each author as |name| }}
+            <p class="book__author">by {{ name.0.name }}</p>
+          {{/each}}
+        {{/each}}
+
+        <img src="{{ book.0.image_url }}" alt="">
+        <p class="book__description">
+          {{book.0.description}}
+        </p>
+      {{/if}}
+    </div>
+  </div>
+</body>
+</html>
