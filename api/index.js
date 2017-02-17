@@ -14,9 +14,10 @@ class API {
   flattenBy(type, response) {
     switch (type) {
       case 'reviews':
+      console.log(response['reviews'][0]['review']);
       return response['reviews'][0]['review'];
       case 'book':
-      return response['book'];
+      return response.book.length ? response['book'] : [];
     }
   }
 
@@ -41,6 +42,11 @@ class API {
   getShelf(userId, shelf = 'currently-reading') {
     const url = `${BASE_URL}/review/list/${userId}.xml?key=${this.key}&shelf=${shelf}&v=2`;
     return this.request(url, 'reviews');
+  }
+
+  getBookById(id) {
+    const url = `${BASE_URL}/book/show/${id}.xml?key=${this.key}`;
+    return this.request(url, 'book');
   }
 
   searchBook({ author = '', title = '' }) {
