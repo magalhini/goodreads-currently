@@ -15,6 +15,16 @@ a {
   color: #fefefe;
 }
 
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.heading__aside {
+  align-self: center;
+}
+
 .main-title {
   font-family: 'bodoni urw';
   font-size: 3em;
