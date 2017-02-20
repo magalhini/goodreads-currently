@@ -7,6 +7,37 @@
     <h1 class="main-title">Currently Reading</h1>
     <p class="main-subtitle">Your books from Goodreads 📚</p>
 
+    <div class="book__detail">
+      {{#if error}}
+        <h3>Oops, this book wasn't found. Try again?</h3>
+      {{/if}}
+      {{#if book}}
+      <div class="book-item">
+        <div class="bk-img">
+          <div class="bk-wrapper">
+            <div class="bk-book bk-bookdefault">
+              <div class="bk-front">
+                <div class="bk-cover" style="background-image: url('{{ book.0.image_url }}')"></div>
+              </div>
+              <div class="bk-back"></div>
+              <div class="bk-left"></div>
+            </div>
+          </div>
+        </div>
+        <div class="item-details">
+          <h3 class="book__title">{{ book.0.title }}</h3>
+          {{#each book.0.authors as |author|}}
+            {{#each author as |name| }}
+              <p class="book__author author">by {{ name.0.name }}</p>
+            {{/each}}
+          {{/each}}
+          <div class="book__description">{{{book.0.description}}}</div>
+        </div>
+      </div>
+      
+      {{/if}}
+    </div>
+<!--
     <div class="book-item">
       <div class="bk-img">
         <div class="bk-wrapper">
@@ -44,6 +75,7 @@
         </p>
       {{/if}}
     </div>
+  -->
   </div>
 </body>
 </html>
