@@ -20,8 +20,8 @@
                 <p class="book__author">{{ name.0.name }}</p>
               {{/each}}
             {{/each}}
-            {{#each books.id as |id|}}
-              <a href=/book/{{ id }}>
+            {{#each book.id as |ids|}}
+              <a href=/book/{{ ids._ }}>
                 <img class="book__cover" width="100" src={{ book.image_url }} alt="">
               </a>
             {{/each}}
