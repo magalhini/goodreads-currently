@@ -4,13 +4,20 @@
 <body class="dark-theme">
 
   <div class="container">
-    <h1 class="main-title">Currently Reading</h1>
-    <p class="main-subtitle">Your books from Goodreads 📚</p>
-
+    <header class="heading">
+      <div>
+        <h1 class="main-title">Currently Reading</h1>
+        <p class="main-subtitle">Your books from Goodreads 📚</p>
+      </div>
+      <div class="heading__aside">
+        <a href="json">Get as JSON</a>
+      </div>
+    </header>
     <div class="books">
       {{#if error}}
         <h3>There was an error getting the books for this user</h3>
       {{/if}}
+
       {{#if items}}
         {{#each items as |books|}}
           {{#each books.book as |book|}}
