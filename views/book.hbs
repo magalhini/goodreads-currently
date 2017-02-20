@@ -7,6 +7,25 @@
     <h1 class="main-title">Currently Reading</h1>
     <p class="main-subtitle">Your books from Goodreads 📚</p>
 
+    <div class="book-item">
+      <div class="bk-img">
+        <div class="bk-wrapper">
+          <div class="bk-book bk-bookdefault">
+            <div class="bk-front">
+              <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"></div>
+            </div>
+            <div class="bk-back"></div>
+            <div class="bk-left"></div>
+          </div>
+        </div>
+      </div>
+      <div class="item-details">
+        <h3 class="book-item_title">The Catcher in the Rye</h3>
+        <p class="author">by J.D. Salinger &bull; 1951</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
+      </div>
+    </div>
+
     <div class="book__detail">
       {{#if error}}
         <h3>Oops, this book wasn't found. Try again?</h3>
@@ -21,7 +40,7 @@
 
         <img src="{{ book.0.image_url }}" alt="">
         <p class="book__description">
-          {{book.0.description}}
+          {{{book.0.description}}}
         </p>
       {{/if}}
     </div>
