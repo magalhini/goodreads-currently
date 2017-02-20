@@ -10,7 +10,7 @@ const xml2js = require('xml2js')
 const PORT = process.env.PORT || 3000;
 const api = require('./api');
 
-env(__dirname + '/.env')
+if (process.env.ENV === 'development') env(__dirname + '/.env');
 
 const parser = new xml2js.Parser()
 
@@ -52,6 +52,7 @@ app.get('/reading/:user', (req, res) => {
 
   apiClient
     .getShelf(user, 'currently-reading')
+    .then(b => { console.log(b[0].book[0].id[0]['_']); return b })
     .then(items => res.render('reading', { items }))
     .catch(error => res.render('reading', { error }));
 });
@@ -73,11 +74,11 @@ app.get('/book/:id', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  apiClient.searchBook({
+  /*apiClient.searchBook({
     title: 'Hound Of Baskervilles'
   })
     .then(res => console.log(res))
-    .catch(err => console.log(err));
+    .catch(err => console.log(err));*/
 
   res.render('index')
 })
