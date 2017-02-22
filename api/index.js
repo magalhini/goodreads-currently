@@ -17,6 +17,7 @@ class API {
       console.log(response['reviews'][0]['review']);
       return response['reviews'][0]['review'];
       case 'book':
+      console.log(response['book'])
       return response.book.length ? response['book'] : [];
     }
   }
@@ -36,7 +37,7 @@ class API {
   }
 
   constructBookList(res) {
-    //console.log(res['reviews'][0].review[0]);
+    // flatten hierarchy here on a more sane way
   }
 
   getShelf(userId, shelf = 'currently-reading') {

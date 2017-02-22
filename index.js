@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const hbs = require('hbs')
-const goodreads = require('goodreads')
 const bodyParser = require('body-parser')
 const env = require('node-env-file')
 const fetch = require('node-fetch')
@@ -12,40 +11,18 @@ const api = require('./api');
 
 if (process.env.ENV === 'development') env(__dirname + '/.env');
 
-const parser = new xml2js.Parser()
+hbs.registerHelper('hasLength', (ctx, opt) => ctx.length);
 
 const apiClient = new api({
   key: process.env.KEY,
   secret: process.env.SECRET
 });
 
-const goodreadsClient = new goodreads.client({
-  key: process.env.KEY,
-  secret: process.env.SECRET
-})
-
 app.set('views', './views')
 app.set('view engine', 'hbs')
 app.use(express.static(__dirname + '/'))
 app.use(bodyParser.urlencoded({ extended: true }))
 hbs.registerPartials(__dirname + '/views/partials')
-
-function getCurrentlyReading(userID) {
-  return new Promise((resolve, reject) => {
-    goodreadsClient.getSingleShelf({
-      userID: userID,
-      shelf: 'currently-reading',
-      page: 1
-    }, (data) => {
-      if (typeof data.html !== 'object' && typeof data.error !== 'null') {
-        const { books } = data.GoodreadsResponse;
-        resolve(books[0].book)
-      } else {
-        reject({ success: false })
-      }
-    })
-  });
-}
 
 app.get('/reading/:user', (req, res) => {
   const user = req.params.user;
@@ -60,15 +37,19 @@ app.get('/reading/:user', (req, res) => {
 app.get('/reading/:user/json', (req, res) => {
   const user = req.params.user;
 
-  apiClient
-    .getShelf(user, 'currently-reading')
-    .then(items => res.json(items));
+  apiClient.getShelf(user, 'currently-reading')
+    .then(items => res.json(items))
+    .catch(error => renderError(res, error))
 });
 
-app.get('/book/:id', (req, res) => {
-  const id = req.params.id;
+app.get('/book/:id/json', (req, res) => {
+  apiClient.getBookById(req.params.id)
+    .then(book => res.json(book))
+    .catch(error => renderError(res, error));
+})
 
-  apiClient.getBookById(id)
+app.get('/book/:id', (req, res) => {
+  apiClient.getBookById(req.params.id)
     .then(book => res.render('book', { book }))
     .catch(error => res.render('book', { error }))
 });
@@ -79,8 +60,11 @@ app.get('/', (req, res) => {
   })
     .then(res => console.log(res))
     .catch(err => console.log(err));*/
+  res.render('index');
+});
 
-  res.render('index')
-})
+function renderError(res, error) {
+  res.status(400).json({ error });
+}
 
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))

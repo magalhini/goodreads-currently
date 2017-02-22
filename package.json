@@ -1,15 +1,15 @@
 {
   "name": "goodreads-currently",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "ENV=development nodemon index.js",
-    "start": "node index.js",
+    "start": "ENV=production node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ricardo Magalhães",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.16.0",

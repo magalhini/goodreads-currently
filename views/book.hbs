@@ -25,57 +25,42 @@
           </div>
         </div>
         <div class="item-details">
-          <h3 class="book__title">{{ book.0.title }}</h3>
+          <h3 class="book__title book__title--detail">{{ book.0.title }}</h3>
+          <p class="book__rating">{{book.0.average_rating}}</p>
           {{#each book.0.authors as |author|}}
             {{#each author as |name| }}
               <p class="book__author author">by {{ name.0.name }}</p>
             {{/each}}
           {{/each}}
-          <div class="book__description">{{{book.0.description}}}</div>
+          {{#if book.0.description}}
+            <div class="book__description">{{{book.0.description}}}</div>
+          {{else}}
+            <div class="book__description">This book has no description yet. Head over to its profile page on Goodreads to learn more about it.</div>
+          {{/if}}
         </div>
       </div>
-      
-      {{/if}}
-    </div>
-<!--
-    <div class="book-item">
-      <div class="bk-img">
-        <div class="bk-wrapper">
-          <div class="bk-book bk-bookdefault">
-            <div class="bk-front">
-              <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"></div>
-            </div>
-            <div class="bk-back"></div>
-            <div class="bk-left"></div>
-          </div>
-        </div>
-      </div>
-      <div class="item-details">
-        <h3 class="book-item_title">The Catcher in the Rye</h3>
-        <p class="author">by J.D. Salinger &bull; 1951</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
-      </div>
-    </div>
 
-    <div class="book__detail">
-      {{#if error}}
-        <h3>Oops, this book wasn't found. Try again?</h3>
-      {{/if}}
-      {{#if book}}
-        <h3 class="book__title">{{ book.0.title }}</h3>
-        {{#each book.0.authors as |author|}}
-          {{#each author as |name| }}
-            <p class="book__author">by {{ name.0.name }}</p>
-          {{/each}}
-        {{/each}}
-
-        <img src="{{ book.0.image_url }}" alt="">
-        <p class="book__description">
-          {{{book.0.description}}}
-        </p>
       {{/if}}
     </div>
-  -->
   </div>
 </body>
+
+<script type="text/javascript">
+  const rating = document.querySelector('.book__rating');
+
+  console.log(rating);
+
+  const createStar = () => {
+    const starEl = document.createElement('div');
+    starEl.innerHTML = '★';
+    starEl.classList.add('star-rating');
+    return starEl;
+  }
+
+  let stars = Array
+    .apply(null, { length: Math.round(rating.innerHTML) })
+    .map(Number.call, Number)
+    .forEach(star => rating.appendChild(createStar()));
+</script>
+
 </html>
