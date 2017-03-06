@@ -38,8 +38,22 @@
             <div class="book__description">This book has no description yet. Head over to its profile page on Goodreads to learn more about it.</div>
           {{/if}}
         </div>
-      </div>
 
+
+      </div>
+      <section class="similar-books">
+        <h3>Similar Books</h3>
+        <div class="similar-books__list">
+          {{#each book.0.similar_books as |related|}}
+            {{#each related.book as |book|}}
+              <div class="similar-books__book">
+                <img src="{{book.image_url}}" alt="">
+                <h5>{{book.title}}</h5>
+              </div>
+            {{/each}}
+          {{/each}}
+        </div>
+      </section>
       {{/if}}
     </div>
   </div>

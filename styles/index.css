@@ -1,7 +1,7 @@
 body {
   color: #D9D9D9;
   background: #222127;
-  font-family: 'adelle-sans';
+  font-family: 'Tisa Pro';
   font-size: 1em;
   line-height: 1.5;
 }
@@ -53,7 +53,7 @@ a {
 
 .button,
 .input {
-  font-family: 'adelle-sans', 'adelle sans';
+  font-family: 'Tisa Pro', 'adelle sans';
 }
 
 .button {
@@ -120,14 +120,17 @@ a {
 
 .book__title--detail {
   margin-top: 0;
+  font-size: 1.6rem;
+  font-family: 'Tisa Pro';
 }
 
 .book__description {
   font-size: 1.3rem;
+  font-family: 'Tisa Sans Pro';
 }
 
 .book__author {
-  font-family: 'bodoni-urw', 'bodoni urw';
+  font-family: 'Tisa Pro';
   color: #ff8e8e;
   font-size: 1.3rem;
 }
@@ -136,6 +139,7 @@ a {
   float: left;
   color: #ffff96;
   margin-right: 2px;
+  font-family: sans-serif;
 }
 
 .star-rating:last-of-type {
@@ -176,7 +180,7 @@ div a {
   background: transparent;
   position: relative;
   display: block;
-  font-family: 'skolar sans latin';
+  font-family: 'Tisa Sans Pro';
   font-weight: 100;
   font-size: 1.3em;
   padding: .8em 1rem;
@@ -287,7 +291,7 @@ div a {
   background-color: #fff;
 }
 .book-item:hover .item-img img {
-  box-shadow: 0px 0px 10px 0px rgba(49, 49, 49, 0.25);
+  box-shadow: 0 0 10px 0 rgba(49, 49, 49, 0.25);
 }
 .book-item:hover a.button {
   background-color: #219e9a;
@@ -460,4 +464,25 @@ div a {
 .bk-img .bk-left {
   /*background-color: #219e9a;*/
   background-color: #333;
+}
+
+/**
+ * Similar Books
+ */
+
+.similar-books {
+  float: left;
+  clear: both;
+}
+
+.similar-books__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.similar-books__book {
+  width: 10em;
+  text-align: center;
 }
