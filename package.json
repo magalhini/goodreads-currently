@@ -5,21 +5,29 @@
   "main": "index.js",
   "scripts": {
     "dev": "ENV=development nodemon index.js",
-    "start": "ENV=production node index.js",
+    "start": "node index.js",
+    "clean": "rm -rf dist",
+    "build": "node_modules/.bin/babel src/ --out-dir dist",
+    "watch": "ENV=development && npm run clean && nodemon index.js --ignore dist --exec 'npm run build'",
+    "deploy": "npm run build && now -e key=@key -e secret=@secret",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Ricardo Magalhães",
   "license": "ISC",
   "dependencies": {
+    "babel-core": "^6.23.1",
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
-    "goodreads": "^0.1.0",
     "handlebars": "^4.0.6",
     "hbs": "^4.0.1",
-    "node-fetch": "^1.6.3"
+    "node-fetch": "^1.6.3",
+    "xml2js": "^0.4.17"
   },
   "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-watch": "^2.0.6",
+    "gulp": "^3.9.1",
     "node-env-file": "^0.1.8"
   }
 }

@@ -14,8 +14,8 @@ if (process.env.ENV === 'development') env(__dirname + '/.env');
 hbs.registerHelper('hasLength', (ctx, opt) => ctx.length);
 
 const apiClient = new api({
-  key: process.env.KEY,
-  secret: process.env.SECRET
+  key: process.env.key,
+  secret: process.env.secret
 });
 
 app.set('views', './views')

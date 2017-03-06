@@ -23,6 +23,7 @@ class API {
   }
 
   request(url, type) {
+    console.log(url);
     return new Promise((res, rej) => {
       fetch(url)
         .then(res => res.status === 200 ? res.text() : rej('There was an error getting the response'))
