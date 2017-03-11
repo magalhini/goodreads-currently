@@ -54,12 +54,20 @@ app.get('/book/:id', (req, res) => {
     .catch(error => res.render('book', { error }))
 });
 
-app.get('/', (req, res) => {
-  /*apiClient.searchBook({
-    title: 'Hound Of Baskervilles'
+app.post('/search/book/', (req, res) => {
+  apiClient.searchBook({
+    title: 'the gifts of'
   })
     .then(res => console.log(res))
-    .catch(err => console.log(err));*/
+    .catch(err => console.log(err));
+});
+
+app.get('/', (req, res) => {
+  apiClient.searchBook({
+    title: 'the gifts of'
+  })
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
   res.render('index');
 });
 

@@ -1,7 +1,7 @@
 body {
   color: #D9D9D9;
   background: #222127;
-  font-family: 'Tisa Pro';
+  font-family: 'Tisa Sans Pro', sans-serif;
   font-size: 1em;
   line-height: 1.5;
 }
@@ -27,16 +27,23 @@ a {
 
 .main-title {
   font-family: 'bodoni-urw', 'bodoni urw';
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 100;
   letter-spacing: -1px;
   color: #fff;
   margin: 1rem 0 0 0;
+  line-height: 1;
+}
+
+@media screen and (min-width: 600px) {
+  .main-title {
+    font-size: 3em;
+  }
 }
 
 .main-subtitle {
+  margin-top: 0;
   font-size: 1em;
-  margin-top: -1rem;
   color: #C97D7D;
 }
 
@@ -53,7 +60,7 @@ a {
 
 .button,
 .input {
-  font-family: 'Tisa Pro', 'adelle sans';
+  font-family: 'Tisa Sans Pro', sans-serif;
 }
 
 .button {
@@ -126,7 +133,7 @@ a {
 
 .book__description {
   font-size: 1.3rem;
-  font-family: 'Tisa Sans Pro';
+  font-family: 'Tisa Sans Pro', sans-serif;
 }
 
 .book__author {
@@ -180,7 +187,7 @@ div a {
   background: transparent;
   position: relative;
   display: block;
-  font-family: 'Tisa Sans Pro';
+  font-family: 'Tisa Sans Pro', sans-serif;
   font-weight: 100;
   font-size: 1.3em;
   padding: .8em 1rem;
@@ -228,8 +235,8 @@ div a {
   transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
   -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
 }
 
 .input__label::after {
@@ -242,8 +249,8 @@ div a {
   background: #ddd;
   -webkit-transform-origin: 50% 0%;
   transform-origin: 50% 0%;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
 }
 
 .input__field:focus + .input__label::after,

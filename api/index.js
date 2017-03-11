@@ -22,6 +22,13 @@ class API {
     }
   }
 
+  post(url, type) {
+    fetch(url, {
+      type: 'POST'
+    })
+      .then(text => console.log(text))
+  }
+
   request(url, type) {
     console.log(url);
     return new Promise((res, rej) => {
@@ -56,7 +63,7 @@ class API {
     const formatAuthor = apiFormatString(author);
     const url = `${BASE_URL}/book/title.xml?author=${formatAuthor}&key=${this.key}&title=${formatTitle}`;
 
-    return this.request(url, 'book');
+    return this.post(url, 'book');
   }
 }
 

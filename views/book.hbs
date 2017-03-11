@@ -4,8 +4,15 @@
 <body class="dark-theme">
 
   <div class="container">
-    <h1 class="main-title">Currently Reading</h1>
-    <p class="main-subtitle">Your books from Goodreads 📚</p>
+    <header class="heading">
+      <div class="heading__brand">
+        <h1 class="main-title">Currently Reading 📚</h1>
+        <p class="main-subtitle">Your books from Goodreads</p>
+      </div>
+      <div class="heading__aside">
+        <a href="/json">Get as JSON</a>
+      </div>
+    </header>
 
     <div class="book__detail">
       {{#if error}}
@@ -46,10 +53,16 @@
         <div class="similar-books__list">
           {{#each book.0.similar_books as |related|}}
             {{#each related.book as |book|}}
-              <div class="similar-books__book">
-                <img src="{{book.image_url}}" alt="">
-                <h5>{{book.title}}</h5>
-              </div>
+
+              {{#each book.id as |ids|}}
+                <a href=/book/{{ ids }}>
+                  <div class="similar-books__book">
+                    <img src="{{book.image_url}}" alt="">
+                    <h5>{{book.title}}</h5>
+                  </div>
+                </a>
+              {{/each}}
+              
             {{/each}}
           {{/each}}
         </div>
