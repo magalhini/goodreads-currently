@@ -4,8 +4,8 @@
 <body>
 
   <div class="container">
-    <h1 class="main-title">Currently Reading</h1>
-    <p class="main-subtitle">Your books from Goodreads 📚</p>
+    <h1 class="main-title">Currently Reading 📚</h1>
+    <p class="main-subtitle">Your books from Goodreads</p>
     <div class="helper-section">
 
       <div class="input-wrapper">
@@ -19,11 +19,32 @@ and an API microservice that allows you to consume its API in a <code>JSON</code
         <button class="button" id="get-books" type="button" name="button">Display my books</button>
       </div>
 
-      <div class="endpoints">
-        <h3>API endpoints:</h3>
-        <div><pre class="endpoint__link">/reading/:userID/json</pre> — <span class="endpoint__description">currently reading shelf</span></div>
-        <div><pre class="endpoint__link">/book/:bookID/json</pre> — <span class="endpoint__description">gets book by ID</span></div>
-      </div>
+      <section class="endpoints-wrapper">
+        <div class="endpoints container container--api">
+          <h2>Using the API</h2>
+
+          <div class="endpoint__item">
+            <h4 class="endpoint__title">Currently Reading Shelf</h4>
+            <span class="endpoint__description">Returns a JSON response with the book details on a currently reading shelf.</span>
+            <p><pre class="endpoint__link">GET /reading/:userID/json</pre></p>
+          </div>
+
+          <div class="endpoint__item">
+            <h4 class="endpoint__title">Get book detail by ID</h4>
+            <span class="endpoint__description">Given a book ID, returns a JSON response with all the available information of a book.</span>
+            <p><pre class="endpoint__link">GET /book/:bookID/json</pre></p>
+          </div>
+
+          <div class="endpoint__item">
+            <h4 class="endpoint__title">Search books by author and title</h4>
+            <span class="endpoint__description">Given an author or/and a book title, displays a JSON response with all the search results.</span>
+            <p><pre class="endpoint__link">POST /search/book</pre></p>
+            <p><pre>{title |String|}</pre></p>
+            <p><pre>{author |String|}</pre></p>
+          </div>
+
+        </div>
+      </section>
 
   </div>
 

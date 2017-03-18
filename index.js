@@ -48,7 +48,7 @@ app.get('/book/:id/json', (req, res) => {
     .catch(error => renderError(res, error));
 })
 
-app.get('/book/:id', (req, res) => {
+app.get('/book/:id/', (req, res) => {
   apiClient.getBookById(req.params.id)
     .then(book => res.render('book', { book }))
     .catch(error => res.render('book', { error }))
@@ -56,18 +56,14 @@ app.get('/book/:id', (req, res) => {
 
 app.post('/search/book/', (req, res) => {
   apiClient.searchBook({
-    title: 'the gifts of'
+    title: req.body.title || '',
+    author: req.body.author || '',
   })
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+    .then(res => res.status(200).json(res))
+    .catch(err => renderError(res, err));
 });
 
 app.get('/', (req, res) => {
-  apiClient.searchBook({
-    title: 'the gifts of'
-  })
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
   res.render('index');
 });
 

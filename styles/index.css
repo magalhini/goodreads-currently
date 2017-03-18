@@ -53,6 +53,10 @@ a {
   margin: auto;
 }
 
+.container--api {
+  padding: 2rem 1em 0 1em;
+}
+
 .helper__title {
   width: 80%;
   font-size: 1.2rem;
@@ -162,7 +166,6 @@ div a {
 */
 
 .helper-section {
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,6 +184,7 @@ div a {
 .submit-wrapper {
   width: 100%;
   position: relative;
+  margin-bottom: 3rem;
 }
 
 .input__field {
@@ -263,9 +267,31 @@ div a {
   transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
 }
 
+.endpoints-wrapper {
+  width: calc(100vw - 0%);
+  background: rgba(0,0,0,.2);
+  box-shadow: 0 0 30px 5px rgba(0,0,0,.1) inset;
+}
+
+.endpoints {
+
+}
+
+.endpoint__item {
+  margin-bottom: 2em;
+  margin-top: 2em;
+  border-bottom: 1px solid white;
+}
+
 .endpoints {
   width: 100%;
   margin-top: 2em;
+}
+
+.endpoint__title {
+  letter-spacing: 1px;
+  font-feature-settings: "c2sc";
+  text-transform: uppercase;
 }
 
 .endpoint__link,
