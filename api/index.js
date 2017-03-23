@@ -5,40 +5,36 @@ const apiFormatString = require('./helpers').apiFormatString;
 const BASE_URL = 'https://www.goodreads.com';
 
 class API {
-  constructor({key, secret}) {
+  constructor({ key, secret }) {
     this.key = key;
     this.secret = secret;
-    this.constructBookList = this.constructBookList.bind(this);
   }
 
   flattenBy(type, response) {
     switch (type) {
       case 'reviews':
-      console.log(response['reviews'][0]['review']);
       return response['reviews'][0]['review'];
       case 'book':
-      console.log(response['book'])
       return response.book.length ? response['book'] : [];
     }
   }
 
+  checkStatus(response, reject) {
+    return (response.status === 200) ? response.text() : reject('There was an error getting the response');
+  }
+
   request(url, type) {
-    console.log(url);
     return new Promise((res, rej) => {
       fetch(url)
-        .then(res => res.status === 200 ? res.text() : rej('There was an error getting the response'))
+        .then(response => this.checkStatus(response))
         .then(text => parser.parseString(text, (err, parsed) => {
           if (text) {
             res(this.flattenBy(type, parsed.GoodreadsResponse));
           }
           else rej(err);
         }))
-        .catch(err => rej(err));
+        .catch(err => rej('Error getting the response'));
     });
-  }
-
-  constructBookList(res) {
-    // flatten hierarchy here on a more sane way
   }
 
   getShelf(userId, shelf = 'currently-reading') {
@@ -56,7 +52,11 @@ class API {
     const formatAuthor = apiFormatString(author);
     const url = `${BASE_URL}/book/title.xml?author=${formatAuthor}&key=${this.key}&title=${formatTitle}`;
 
-    return this.request(url, 'book');
+    return new Promise((res, rej) => {
+      this.request(url, 'book')
+        .then(data => res(data))
+        .catch(err => rej(err))
+    });
   }
 }
 

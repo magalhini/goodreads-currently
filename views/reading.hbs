@@ -6,8 +6,8 @@
   <div class="container">
     <header class="heading">
       <div>
-        <h1 class="main-title">Currently Reading</h1>
-        <p class="main-subtitle">Your books from Goodreads 📚</p>
+        <h1 class="main-title">Currently Reading 📚</h1>
+        <p class="main-subtitle">Your books from Goodreads</p>
       </div>
       <div class="heading__aside">
         <a href="json">Get as JSON</a>
@@ -28,8 +28,8 @@
               {{/each}}
             {{/each}}
             {{#each book.id as |ids|}}
-              <a href=/book/{{ ids._ }}>
-                <img class="book__cover" width="100" src={{ book.image_url }} alt="">
+              <a class="book__link" href=/book/{{ ids._ }}>
+                <img class="book__cover" width="100" src={{ book.image_url }} alt="Book cover">
               </a>
             {{/each}}
             <p class="book__title">{{ book.title }}</p>

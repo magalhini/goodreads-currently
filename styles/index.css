@@ -118,6 +118,7 @@ a {
 .book__cover {
   box-shadow: 0 15px 15px -5px rgba(0,0,0,.5);
   transition: transform ease-in-out .3s;
+  display: inline-block;
 }
 
 .book:hover img {
@@ -157,9 +158,6 @@ a {
   margin-right: 6px;
 }
 
-div a {
-  padding-left: 0.5em;
-}
 
 /**
 * Fancy input
@@ -361,6 +359,11 @@ div a {
 
 .book__detail {
   margin-top: 3em;
+}
+
+.book__link {
+  padding-left: 0.5em;
+  display: inline-block;
 }
 
 /*

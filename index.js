@@ -9,6 +9,9 @@ const xml2js = require('xml2js')
 const PORT = process.env.PORT || 3000;
 const api = require('./api');
 
+const FAKE_READING = require('./json.json');
+const FAKE_BOOK = require('./book.json');
+
 if (process.env.ENV === 'development') env(__dirname + '/.env');
 
 hbs.registerHelper('hasLength', (ctx, opt) => ctx.length);
@@ -18,14 +21,16 @@ const apiClient = new api({
   secret: process.env.secret
 });
 
-app.set('views', './views')
-app.set('view engine', 'hbs')
-app.use(express.static(__dirname + '/'))
-app.use(bodyParser.urlencoded({ extended: true }))
-hbs.registerPartials(__dirname + '/views/partials')
+app.set('views', './views');
+app.set('view engine', 'hbs');
+app.use(express.static(__dirname + '/'));
+app.use(bodyParser.urlencoded({ extended: true }));
+hbs.registerPartials(__dirname + '/views/partials');
 
 app.get('/reading/:user', (req, res) => {
   const user = req.params.user;
+
+  //return res.render('reading', { items: FAKE_READING })
 
   apiClient
     .getShelf(user, 'currently-reading')
@@ -49,6 +54,7 @@ app.get('/book/:id/json', (req, res) => {
 })
 
 app.get('/book/:id/', (req, res) => {
+  //return res.render('book', { book: FAKE_BOOK });
   apiClient.getBookById(req.params.id)
     .then(book => res.render('book', { book }))
     .catch(error => res.render('book', { error }))
@@ -59,13 +65,14 @@ app.post('/search/book/', (req, res) => {
     title: req.body.title || '',
     author: req.body.author || '',
   })
-    .then(res => res.status(200).json(res))
-    .catch(err => renderError(res, err));
+    .then(data => res.json(data))
+    .catch(err => renderError(res, 'errrrrrrppppprrrr'));
 });
 
 app.get('/', (req, res) => {
   res.render('index');
 });
+
 
 function renderError(res, error) {
   res.status(400).json({ error });
