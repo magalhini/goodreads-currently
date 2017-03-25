@@ -16,6 +16,9 @@ class API {
       return response['reviews'][0]['review'];
       case 'book':
       return response.book.length ? response['book'] : [];
+      case 'author':
+      console.log(JSON.stringify(response.author[0].id, undefined, 2));
+      return response.author[0];
     }
   }
 
@@ -45,6 +48,11 @@ class API {
   getBookById(id) {
     const url = `${BASE_URL}/book/show/${id}.xml?key=${this.key}`;
     return this.request(url, 'book');
+  }
+
+  getAuthorById(id) {
+    const url = `${BASE_URL}/author/show/${id}.xml?key=${this.key}`;
+    return this.request(url, 'author');
   }
 
   searchBook({ author = '', title = '' }) {

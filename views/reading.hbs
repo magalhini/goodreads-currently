@@ -24,7 +24,10 @@
           <div class="book">
             {{#each book.authors as |author|}}
               {{#each author as |name| }}
-                <p class="book__author">{{ name.0.name }}</p>
+
+                <a class="book__author-link" href="/author/{{{name.0.id}}}">
+                  <p class="book__author">{{ name.0.name }}</p>
+                </a>
               {{/each}}
             {{/each}}
             {{#each book.id as |ids|}}

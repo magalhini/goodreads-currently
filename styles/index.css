@@ -58,8 +58,13 @@ a {
 }
 
 .helper__title {
-  width: 80%;
   font-size: 1.2rem;
+}
+
+@media screen and (min-width: 600px) {
+  .helper__title {
+    width: 80%;
+  }
 }
 
 .button,
@@ -75,9 +80,7 @@ a {
   letter-spacing: 1px;
   color: #fff;
   font-weight: 600;
-  position: absolute;
-  right: 0;
-  top: 1.7rem;
+  width: 100%;
 }
 
 .button:hover {
@@ -147,6 +150,10 @@ a {
   font-size: 1.3rem;
 }
 
+.book__author-link {
+  text-decoration: none;
+}
+
 .star-rating {
   float: left;
   color: #ffff96;
@@ -175,14 +182,9 @@ a {
   z-index: 1;
 }
 
-.input-wrapper {
-  width: 100%;
-}
-
+.input-wrapper,
 .submit-wrapper {
   width: 100%;
-  position: relative;
-  margin-bottom: 3rem;
 }
 
 .input__field {
@@ -193,8 +195,7 @@ a {
   font-weight: 100;
   font-size: 1.3em;
   padding: .8em 1rem;
-  height: 4;
-  width: 60%;
+  width: 100%;
   opacity: 1;
   color: #333;
   margin-top: 1.5em;
@@ -205,6 +206,7 @@ a {
   transition: opacity 0.3s;
   -webkit-appearance: none;
 }
+
 
 .input__field:focus,
 .input__field.input__field--active {
@@ -218,8 +220,7 @@ a {
   display: inline-block;
   padding: 1em 0;
   position: relative;
-  width: 60%;
-  text-align: left;
+  width: 100%;
   color: #6a7989;
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
@@ -249,9 +250,7 @@ a {
   width: 100%;
   height: 0.25em;
   background: #ddd;
-  -webkit-transform-origin: 50% 0%;
   transform-origin: 50% 0%;
-  -webkit-transition: -webkit-transform 0.6s;
   transition: transform 0.6s;
 }
 
@@ -263,6 +262,25 @@ a {
 .input__field:focus + .input__label::before,
 .input__field--active + .input__label::before {
   transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
+}
+
+@media screen and (min-width: 700px) {
+  .submit-wrapper {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+
+  .input__field,
+  .input__label {
+    width: 60%;
+  }
+
+  .button {
+    width: auto;
+    position: absolute;
+    right: 0;
+    top: 1.7rem;
+  }
 }
 
 .endpoints-wrapper {
@@ -321,29 +339,33 @@ a {
   box-shadow: 0px 1px 1px 1px rgba(210, 214, 213, 0.5);
   background-color: #fff;
 }
+
 .book-item:hover .item-img img {
   box-shadow: 0 0 10px 0 rgba(49, 49, 49, 0.25);
 }
+
 .book-item:hover a.button {
   background-color: #219e9a;
 }
+
 .book-item:hover .bk-bookdefault {
-  -webkit-transform: rotate3d(0, 1, 0, 25deg);
   transform: rotate3d(0, 1, 0, 25deg);
 }
 .book-item:hover .bk-back {
   opacity: 1;
 }
+
 .book-item .item-img {
   display: inline-block;
   float: left;
   padding-right: 30px;
 }
+
 .book-item .item-img img {
   box-shadow: 0 0 0 0 transparent;
-  -webkit-transition: all 250ms ease-out;
   transition: all 250ms ease-out;
 }
+
 .book-item .item-details {
   clear: both;
 }
