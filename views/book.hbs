@@ -10,7 +10,7 @@
         <p class="main-subtitle">Your books from Goodreads</p>
       </div>
       <div class="heading__aside">
-        <a href="json">Get as JSON</a>
+        <a class="pill-label" href="json">Get as JSON</a>
       </div>
     </header>
 
@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="item-details">
-          <h3 class="book__title book__title--detail">{{ book.0.title }}</h3>
+          <h3 class="book__title book__title--detail a-fade-in-up-low">{{ book.0.title }}</h3>
           <p class="book__rating">{{book.0.average_rating}}</p>
           {{#each book.0.authors as |author|}}
             {{#each author as |name| }}
@@ -40,7 +40,7 @@
             {{/each}}
           {{/each}}
           {{#if book.0.description}}
-            <div class="book__description">{{{book.0.description}}}</div>
+            <div class="book__description a-fade-in-up-low a-delay-1">{{{book.0.description}}}</div>
           {{else}}
             <div class="book__description">This book has no description yet. Head over to its profile page on Goodreads to learn more about it.</div>
           {{/if}}

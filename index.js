@@ -1,11 +1,11 @@
-const express = require('express')
-const app = express()
-const path = require('path')
-const hbs = require('hbs')
-const bodyParser = require('body-parser')
-const env = require('node-env-file')
-const fetch = require('node-fetch')
-const xml2js = require('xml2js')
+const express = require('express');
+const app = express();
+const path = require('path');
+const hbs = require('hbs');
+const bodyParser = require('body-parser');
+const env = require('node-env-file');
+const fetch = require('node-fetch');
+const xml2js = require('xml2js');
 const PORT = process.env.PORT || 3000;
 const api = require('./api');
 
@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 hbs.registerPartials(__dirname + '/views/partials');
 
 app.get('/reading/:user', (req, res) => {
+  return res.render('reading', { items: FAKE_READING });
   apiClient
     .getShelf(req.params.user, 'currently-reading')
     .then(b => { console.log(b[0].book[0].id[0]['_']); return b })
@@ -48,6 +49,7 @@ app.get('/book/:id/json', (req, res) => {
 })
 
 app.get('/book/:id/', (req, res) => {
+  return res.render('book', { book: FAKE_BOOK });
   apiClient.getBookById(req.params.id)
     .then(book => res.render('book', { book }))
     .catch(error => res.render('book', { error }))

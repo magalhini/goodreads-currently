@@ -25,6 +25,18 @@ a {
   align-self: center;
 }
 
+.pill-label {
+  color: #fff;
+  background: transparent;
+  border: 1px solid #ff8e8e;
+  padding: .5rem 1rem;
+  font-feature-settings: "c2sc";
+  text-transform: uppercase;
+  font-family: 'Tisa Sans Pro';
+  font-size: 1rem;
+  text-decoration: none;
+}
+
 .main-title {
   font-family: 'bodoni-urw', 'bodoni urw';
   font-size: 2em;
@@ -146,11 +158,12 @@ a {
 
 .book__author {
   font-family: 'Tisa Pro';
+  font-weight: 600;
   color: #ff8e8e;
   font-size: 1.3rem;
 }
 
-.book__author-link {
+.book__text-link {
   text-decoration: none;
 }
 
@@ -289,14 +302,10 @@ a {
   box-shadow: 0 0 30px 5px rgba(0,0,0,.1) inset;
 }
 
-.endpoints {
-
-}
-
 .endpoint__item {
   margin-bottom: 2em;
-  margin-top: 2em;
-  border-bottom: 1px solid white;
+  margin-top: 3em;
+  border-bottom: 1px dashed grey;
 }
 
 .endpoints {
@@ -305,9 +314,10 @@ a {
 }
 
 .endpoint__title {
-  letter-spacing: 1px;
-  font-feature-settings: "c2sc";
-  text-transform: uppercase;
+  font-size: 2rem;
+  font-family: 'bodoni-urw', 'bodoni urw';
+  font-weight: 200;
+  margin-bottom: 2rem;
 }
 
 .endpoint__link,
@@ -543,4 +553,44 @@ a {
 .similar-books__book {
   width: 10em;
   text-align: center;
+}
+
+/**
+ * Animations
+ */
+
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translate3d(0, 25px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fade-in-up-min {
+  0% { opacity: 0; transform: translate3d(0, 8px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.a-fade-in-up-low {
+  animation: fade-in-up 0.5s both;
+  animation-delay: 0.15s;
+}
+
+.a-fade-in-up-med {
+  animation: fade-in-up-min 0.5s both;
+  animation-delay: 0.15s;
+}
+
+.a-fade-in-up-med:nth-child(2) { animation-delay: 0.3s; }
+.a-fade-in-up-med:nth-child(3) { animation-delay: 0.4s; }
+.a-fade-in-up-med:nth-child(4) { animation-delay: 0.5s; }
+.a-fade-in-up-med:nth-child(5) { animation-delay: 0.6s; }
+.a-fade-in-up-med:nth-child(6) { animation-delay: 0.7s; }
+.a-fade-in-up-med:nth-child(7) { animation-delay: 0.8s; }
+
+
+.a-delay-half {
+  animation-delay: 0.30s;
+}
+
+.a-delay-1 {
+  animation-delay: .5s;
 }

@@ -10,7 +10,7 @@
         <p class="main-subtitle">Your books from Goodreads</p>
       </div>
       <div class="heading__aside">
-        <a href="json">Get as JSON</a>
+        <a class="pill-label" href="json">Get as JSON</a>
       </div>
     </header>
     <div class="books">
@@ -21,21 +21,23 @@
       {{#if items}}
         {{#each items as |books|}}
           {{#each books.book as |book|}}
-          <div class="book">
+          <div class="book a-fade-in-up-">
             {{#each book.authors as |author|}}
               {{#each author as |name| }}
-
-                <a class="book__author-link" href="/author/{{{name.0.id}}}">
-                  <p class="book__author">{{ name.0.name }}</p>
-                </a>
+                <p>
+                  <a class="book__text-link book__author" href="/author/{{{name.0.id}}}">{{ name.0.name }}</a>
+                </p>
               {{/each}}
             {{/each}}
             {{#each book.id as |ids|}}
               <a class="book__link" href=/book/{{ ids._ }}>
                 <img class="book__cover" width="100" src={{ book.image_url }} alt="Book cover">
               </a>
+              <p class="book__title">
+                <a class="book__text-link" href=/book/{{ ids._}}>{{ book.title }}</a>
+              </p>
             {{/each}}
-            <p class="book__title">{{ book.title }}</p>
+
           </div>
           {{/each}}
         {{/each}}

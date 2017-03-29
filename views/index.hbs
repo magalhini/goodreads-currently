@@ -9,17 +9,17 @@
     <div class="helper-section">
 
       <div class="input-wrapper">
-        <p class="helper__title">Currently Reading is both a pretty profile page for your current reading selection on Goodreads,
+        <p class="helper__title a-fade-in-up-low">Currently Reading is both a pretty profile page for your current reading selection on Goodreads,
 and an API microservice that allows you to consume its API in a <code>JSON</code> response. As an example, <a href="/reading/26866736/">here's my current reading list.</a></p>
       </div>
 
-      <div class="submit-wrapper">
-        <input placeholder="Goodreads ID or profile URL" id="input" type="text" class="input__field input__field--actives">
+      <div class="submit-wrapper a-fade-in-up-low a-delay-half">
+        <input placeholder="Paste Goodreads ID or profile URL" id="input" type="text" class="input__field input__field--actives">
         <label for="" class="input__label"></label>
         <button class="button" id="get-books" type="button" name="button">Display my books</button>
       </div>
 
-      <section class="endpoints-wrapper">
+      <section class="endpoints-wrapper a-fade-in-up-low a-delay-1">
         <div class="endpoints container container--api">
           <h2>Using the API</h2>
 
@@ -45,9 +45,8 @@ and an API microservice that allows you to consume its API in a <code>JSON</code
 
         </div>
       </section>
-
   </div>
-
   <script src="src/home.js"></script>
+  {{>footer}}
 </body>
 </html>

@@ -32,7 +32,7 @@ Index.prototype.init = function() {
   this.inputField.addEventListener('keyup', this.getID);
   this.getBooksButton.addEventListener('click', this.getBooks);
 
-  setTimeout(() => this.inputFieldEl.focus(), 2000);
+  setTimeout(() => this.inputFieldEl.focus(), 700);
 };
 
 const app = new Index();
