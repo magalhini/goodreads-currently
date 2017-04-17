@@ -7,12 +7,12 @@
     "dev": "ENV=development nodemon index.js",
     "start": "node index.js",
     "clean": "rm -rf dist",
-    "build": "node_modules/.bin/babel src/ --out-dir dist && nodemon index.js",
+    "build": "node_modules/.bin/babel src/ --out-dir dist",
     "watch": "ENV=development && npm run clean && nodemon index.js --ignore dist --exec 'npm run build'",
-    "deploy": "npm run build && now -e key=@key -e secret=@secret",
+    "deploy": "now -e key=@key -e secret=@secret",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["goodreads", "books", "reading", "api", "micro service"],
   "author": "Ricardo Magalhães",
   "license": "ISC",
   "dependencies": {

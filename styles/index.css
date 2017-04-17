@@ -25,6 +25,18 @@ a {
   align-self: center;
 }
 
+.heading__link {
+  text-decoration: none;
+}
+
+.heading__link * {
+  transition: letter-spacing .2s ease-in-out;
+}
+
+.heading__link:hover * {
+  letter-spacing: -.5px;
+}
+
 .pill-label {
   color: #fff;
   background: transparent;
@@ -124,8 +136,7 @@ a {
 
 .book {
   padding: 1em;
-  width: 11em;
-  flex-grow: 1;
+  flex: 1 0 15em;
   text-align: center;
   overflow: hidden;
 }
@@ -553,6 +564,20 @@ a {
 .similar-books__book {
   width: 10em;
   text-align: center;
+}
+
+/**
+ * Author
+ */
+
+.author__image {
+  width: 25%;
+  float: left;
+  margin-right: 2em;
+}
+
+.author__fans {
+  font-style: italic;
 }
 
 /**

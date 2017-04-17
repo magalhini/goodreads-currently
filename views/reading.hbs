@@ -5,10 +5,10 @@
 
   <div class="container">
     <header class="heading">
-      <div>
+      <a class="heading__link" href="/">
         <h1 class="main-title">Currently Reading 📚</h1>
         <p class="main-subtitle">Your books from Goodreads</p>
-      </div>
+      </a>
       <div class="heading__aside">
         <a class="pill-label" href="json">Get as JSON</a>
       </div>
@@ -21,7 +21,7 @@
       {{#if items}}
         {{#each items as |books|}}
           {{#each books.book as |book|}}
-          <div class="book a-fade-in-up-">
+          <div class="book a-fade-in-up-med">
             {{#each book.authors as |author|}}
               {{#each author as |name| }}
                 <p>

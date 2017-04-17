@@ -5,10 +5,10 @@
 
   <div class="container">
     <header class="heading">
-      <div class="heading__brand">
+      <a class="heading__link" href="/">
         <h1 class="main-title">Currently Reading 📚</h1>
         <p class="main-subtitle">Your books from Goodreads</p>
-      </div>
+      </a>
       <div class="heading__aside">
         <a href="{{{author.id}}}/json">Get as JSON</a>
       </div>
@@ -24,7 +24,7 @@
         <img class="author__image" src="{{{ author.image_url }}}" alt="">
         <div class="item-details">
           <h3 class="book__title book__title--detail">{{ author.name }}</h3>
-          <p class="author__fans">{{ author.fans_count.0._ }}</p>
+          <p class="author__fans">{{ author.fans_count.0._ }} fans</p>
           {{#if author.about}}
             <div class="book__description">{{{ author.about }}}</div>
           {{else}}
@@ -32,48 +32,13 @@
           {{/if}}
         </div>
 
-
       </div>
-      <section class="similar-books">
-        <h3>Similar Books</h3>
-        <div class="similar-books__list">
-          {{#each book.0.similar_books as |related|}}
-            {{#each related.book as |book|}}
-
-              {{#each book.id as |ids|}}
-                <a href=/book/{{ ids }}>
-                  <div class="similar-books__book">
-                    <img src="{{book.image_url}}" alt="">
-                    <h5>{{book.title}}</h5>
-                  </div>
-                </a>
-              {{/each}}
-
-            {{/each}}
-          {{/each}}
-        </div>
-      </section>
       {{/if}}
     </div>
   </div>
 </body>
 
 <script type="text/javascript">
-  const rating = document.querySelector('.book__rating');
-
-  console.log(rating);
-
-  const createStar = () => {
-    const starEl = document.createElement('div');
-    starEl.innerHTML = '★';
-    starEl.classList.add('star-rating');
-    return starEl;
-  }
-
-  let stars = Array
-    .apply(null, { length: Math.round(rating.innerHTML) })
-    .map(Number.call, Number)
-    .forEach(star => rating.appendChild(createStar()));
 </script>
 
 </html>

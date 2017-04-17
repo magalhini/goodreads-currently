@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 hbs.registerPartials(__dirname + '/views/partials');
 
 app.get('/reading/:user', (req, res) => {
-  return res.render('reading', { items: FAKE_READING });
+  //return res.render('reading', { items: FAKE_READING });
   apiClient
     .getShelf(req.params.user, 'currently-reading')
     .then(b => { console.log(b[0].book[0].id[0]['_']); return b })
@@ -49,7 +49,7 @@ app.get('/book/:id/json', (req, res) => {
 })
 
 app.get('/book/:id/', (req, res) => {
-  return res.render('book', { book: FAKE_BOOK });
+  //return res.render('book', { book: FAKE_BOOK });
   apiClient.getBookById(req.params.id)
     .then(book => res.render('book', { book }))
     .catch(error => res.render('book', { error }))
