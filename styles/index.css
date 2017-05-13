@@ -331,7 +331,7 @@ a:not(.heading__link):hover {
 }
 
 .endpoints-wrapper {
-  width: calc(100vw - 1rem);
+  width: calc(100vw - 1px);
   background: rgba(0,0,0,.2);
   box-shadow: 0 0 30px 5px rgba(0,0,0,.1) inset;
 }
