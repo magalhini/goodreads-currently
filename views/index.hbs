@@ -9,19 +9,23 @@
     <div class="helper-section">
 
       <div class="input-wrapper">
-        <p class="helper__title a-fade-in-up-low">Currently Reading is both a pretty profile page for your current reading selection on Goodreads,
-and an API microservice that allows you to consume its API in a <code>JSON</code> response. As an example, <a href="/reading/26866736/">here's my current reading list.</a></p>
+        <p class="helper__title a-fade-in-up-low">Currently Reading serves two purposes: a <b>pretty profile page for your current reading selection</b> on Goodreads,
+and an <b>API microservice</b> that allows you to consume its API with a <code>JSON</code> response. As an example, <a href="/reading/26866736/">here's my current reading list.</a></p>
       </div>
 
       <div class="submit-wrapper a-fade-in-up-low a-delay-half">
-        <input placeholder="Paste Goodreads ID or profile URL" id="input" type="text" class="input__field input__field--actives">
+        <input placeholder="Your Goodreads ID or profile URL" id="input" type="text" class="input__field input__field--actives">
         <label for="" class="input__label"></label>
         <button class="button" id="get-books" type="button" name="button">Display my books</button>
+        <p class="helper__subtitle">Here's a <a href="/book/25667449">book example</a> and its <code>JSON</code> call, to get you started.</p>
       </div>
 
       <section class="endpoints-wrapper a-fade-in-up-low a-delay-1">
         <div class="endpoints container container--api">
-          <h2>Using the API</h2>
+          <h2>API Documentation</h2>
+          <p class="page-description">Only a few API methods are available, but unlike the official Goodreads API, they all return JSON results instead of XML. There's no need to provide a key, since it's using my own, so please be sensible about the requests you're making. 😘</p>
+          <p class="page-description">Alternatively, you could get the package that connects with the API and modify/extend it as you'd like, by going trough it.</p>
+          <div class="endpoint__item"></div>
 
           <div class="endpoint__item">
             <h4 class="endpoint__title">Currently Reading Shelf</h4>
@@ -46,7 +50,7 @@ and an API microservice that allows you to consume its API in a <code>JSON</code
         </div>
       </section>
   </div>
-  <script src="src/home.js"></script>
+  <script src="../dist/home.js"></script>
   {{>footer}}
 </body>
 </html>

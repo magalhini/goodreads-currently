@@ -1,10 +1,12 @@
+'use strict';
+
 function compose(f, g) {
-  return function(x) {
+  return function (x) {
     return f(g(x));
-  }
+  };
 }
 
-const getValue = function(el) {
+var getValue = function getValue(el) {
   return el.target.value;
 };
 
@@ -18,24 +20,28 @@ function Index() {
   this.getID = compose(this.extractID, getValue);
 }
 
-Index.prototype.extractID = function(val) {
+Index.prototype.extractID = function (val) {
   this.goodreadsID = val.match(this.patternID) ? val.match(this.patternID)[0] : null;
 };
 
-Index.prototype.getBooks = function(e) {
+Index.prototype.getBooks = function (e) {
   if (this.goodreadsID) {
     window.location = '/reading/' + this.goodreadsID;
   } else {
     this.inputFieldEl.focus();
   }
-}
+};
 
-Index.prototype.init = function() {
+Index.prototype.init = function () {
+  var _this = this;
+
   this.inputField.addEventListener('keyup', this.getID);
   this.getBooksButton.addEventListener('click', this.getBooks);
 
-  setTimeout(() => this.inputFieldEl.focus(), 700);
+  setTimeout(function () {
+    return _this.inputFieldEl.focus();
+  }, 700);
 };
 
-const app = new Index();
+var app = new Index();
 app.init();

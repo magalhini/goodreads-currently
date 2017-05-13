@@ -17,7 +17,6 @@ class API {
       case 'book':
       return response.book.length ? response['book'] : [];
       case 'author':
-      console.log(JSON.stringify(response.author[0].id, undefined, 2));
       return response.author[0];
     }
   }

@@ -10,7 +10,7 @@
         <p class="main-subtitle">Your books from Goodreads</p>
       </a>
       <div class="heading__aside">
-        <a class="pill-label" href="json">Get as JSON</a>
+        <a class="pill-label" href="{{{book.0.id}}}/json">Get as JSON</a>
       </div>
     </header>
 
@@ -19,6 +19,7 @@
         <h3>Oops, this book wasn't found. Try again?</h3>
       {{/if}}
       {{#if book}}
+
       <div class="book-item">
         <div class="bk-img">
           <div class="bk-wrapper">
@@ -72,22 +73,6 @@
   </div>
 </body>
 
-<script type="text/javascript">
-  const rating = document.querySelector('.book__rating');
-
-  console.log(rating);
-
-  const createStar = () => {
-    const starEl = document.createElement('div');
-    starEl.innerHTML = '★';
-    starEl.classList.add('star-rating');
-    return starEl;
-  }
-
-  let stars = Array
-    .apply(null, { length: Math.round(rating.innerHTML) })
-    .map(Number.call, Number)
-    .forEach(star => rating.appendChild(createStar()));
-</script>
-
+<script src="../dist/book-detail.js"></script>
+  {{>footer}}
 </html>
