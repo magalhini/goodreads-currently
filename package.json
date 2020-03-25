@@ -13,12 +13,19 @@
     "deploy": "now -e key=@key -e secret=@secret",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["goodreads", "books", "reading", "api", "micro service"],
+  "keywords": [
+    "goodreads",
+    "books",
+    "reading",
+    "api",
+    "micro service"
+  ],
   "author": "Ricardo Magalhães",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.23.1",
     "body-parser": "^1.16.0",
+    "cors": "^2.8.5",
     "express": "^4.14.0",
     "handlebars": "^4.0.6",
     "hbs": "^4.0.1",
