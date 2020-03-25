@@ -14,6 +14,8 @@ if (process.env.ENV === "development") env(__dirname + "/.env");
 
 hbs.registerHelper("hasLength", (ctx, opt) => ctx.length);
 
+console.log("test");
+
 const apiClient = new api({
   key: process.env.key,
   secret: process.env.secret
