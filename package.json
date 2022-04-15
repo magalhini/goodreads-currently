@@ -2,6 +2,9 @@
   "name": "goodreads-currently",
   "version": "0.0.1",
   "description": "",
+  "engines": {
+    "node": "16.x"
+  },
   "main": "app.js",
   "scripts": {
     "dev": "ENV=development nodemon app.js",
