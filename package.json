@@ -2,14 +2,14 @@
   "name": "goodreads-currently",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "ENV=development nodemon index.js",
-    "start": "node index.js",
+    "dev": "ENV=development nodemon app.js",
+    "start": "node app.js",
     "clean": "rm -rf dist",
     "prepublish": "npm run build",
     "build": "npm run clean && node_modules/.bin/babel src/ --out-dir dist",
-    "watch": "ENV=development && npm run clean && nodemon index.js --ignore dist --exec 'npm run build'",
+    "watch": "ENV=development && npm run clean && nodemon app.js --ignore dist --exec 'npm run build'",
     "deploy": "now -e key=@key -e secret=@secret",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
