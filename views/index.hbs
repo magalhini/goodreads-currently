@@ -23,8 +23,8 @@ and an <b>API microservice</b> that allows you to consume its API with a <code>J
       <section class="endpoints-wrapper a-fade-in-up-low a-delay-1">
         <div class="endpoints container container--api">
           <h2>API Documentation</h2>
-          <p class="page-description">Only a few API methods are available, but unlike the official Goodreads API, they all return JSON results instead of XML. There's no need to provide a key, since it's using my own, so please be sensible about the requests you're making. 😘</p>
-          <p class="page-description">Alternatively, you could get the package that connects with the API and modify/extend it as you'd like, by going trough it.</p>
+          <p class="page-description">Only a few API methods are available, but unlike the official Goodreads API, they all return JSON results instead of XML. There's no need to provide a key, since it's using my own, so please be sensible about the requests you're making 😘</p>
+          <p class="page-description">Alternatively, you could get the package that connects with the API and modify/extend it as you'd like, by going through it.</p>
           <div class="endpoint__item"></div>
 
           <div class="endpoint__item">
@@ -32,6 +32,13 @@ and an <b>API microservice</b> that allows you to consume its API with a <code>J
             <span class="endpoint__description">Returns a JSON response with the book details on a currently reading shelf.</span>
             <p><pre class="endpoint__link">GET /reading/:userID/json</pre></p>
           </div>
+
+          <div class="endpoint__item">
+            <h4 class="endpoint__title">Get specific shelf</h4>
+            <span class="endpoint__description">Returns a JSON response with the books included in a shelf.</span>
+            <p><pre class="endpoint__link">GET /shelf/:userID/:shelfname/json</pre></p>
+          </div>
+
 
           <div class="endpoint__item">
             <h4 class="endpoint__title">Get book detail by ID</h4>

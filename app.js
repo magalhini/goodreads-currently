@@ -45,6 +45,22 @@ app.get("/reading/:user/json", (req, res) => {
     .catch((error) => renderError(res, error));
 });
 
+// Get a particular <shelf> (API)
+app.get("/shelf/:user/:shelf/json", (req, res) => {
+  apiClient
+    .getShelf(req.params.user, req.params.shelf)
+    .then((items) => res.json(items))
+    .catch((error) => renderError(res, error));
+});
+
+// Get a particular shelf (web)
+app.get("/shelf/:user/:shelf", (req, res) => {
+  apiClient
+    .getShelf(req.params.user, req.params.shelf)
+    .then((items) => res.render("shelf", { items, shelf: req.params.shelf }))
+    .catch((error) => res.render("shelf", { error }));
+});
+
 app.get("/book/:id/json", (req, res) => {
   apiClient
     .getBookById(req.params.id)

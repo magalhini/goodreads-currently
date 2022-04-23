@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{>header}}
+<body class="dark-theme">
+
+  <div class="container">
+    <header class="heading">
+      <a class="heading__link" href="/">
+        <h1 class="main-title">Currently Reading 📚</h1>
+        <p class="main-subtitle">Your books from Goodreads</p>
+      </a>
+      <div class="heading__aside">
+        <a class="pill-label" href="{{{shelf}}}/json">Get as JSON</a>
+      </div>
+    </header>
+    <h1>{{shelf}}</h1>
+    <div class="books">
+      {{#if error}}
+        <h3>There was an error getting the books for this user</h3>
+      {{/if}}
+
+      {{#if items}}
+        {{#each items as |books|}}
+          {{#each books.book as |book|}}
+          <div class="book a-fade-in-up-med">
+            {{#each book.authors as |author|}}
+              {{#each author as |name| }}
+                <p>
+                  <a class="book__text-link book__author" href="/author/{{{name.0.id}}}">{{ name.0.name }}</a>
+                </p>
+              {{/each}}
+            {{/each}}
+            {{#each book.id as |ids|}}
+              <a class="book__link" href=/book/{{ ids._ }}>
+                <img class="book__cover" width="100" src={{ book.image_url }} alt="Book cover">
+              </a>
+              <p class="book__title">
+                <a class="book__text-link" href=/book/{{ ids._}}>{{ book.title }}</a>
+              </p>
+            {{/each}}
+
+          </div>
+          {{/each}}
+        {{/each}}
+      {{/if}}
+    </div>
+  </div>
+    {{>footer}}
+</body>
+</html>
