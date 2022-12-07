@@ -27,9 +27,9 @@
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.23.1",
-    "body-parser": "^1.16.0",
+    "body-parser": "^1.20.1",
     "cors": "^2.8.5",
-    "express": "^4.14.0",
+    "express": "^4.18.2",
     "handlebars": "^4.7.7",
     "hbs": "^4.0.1",
     "node-env-file": "^0.1.8",
